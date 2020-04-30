@@ -58,58 +58,50 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="images/ritu.png" />
-  <title>221B Baker Street</title>
-  <a href="https://icons8.com/icon/26139/down-button"></a>
+  <title>221B Baker St. | Treasure Hunt</title>
+  <a href="https://icons8.com/icon/32292/instagram"></a>
+  <a href="https://icons8.com/icon/60459/facebook-circled"></a>
+  <a href="https://icons8.com/icon/39969/right-arrow"></a>
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Sen:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style/bootstrap.min.css">
   <link rel="stylesheet" href="style/main.css">
 </head>
 <body>
 
   <div class="hero">
-    <div class="left-portion">
-
-    </div>
-    <div class="container-fluid px-5 py-5">
-
-
-      <div class="container-fluid py-1 px-5">
-        <nav class="navbar navbar-expand-lg navbar-dark  bg-transparent">
-          <a class="navbar-brand color-ly" href="index.php"> <div  class="color-y">221B</div >  Baker St.
-      </a>
-
-
-        </nav>
-      </div>
-
-
-
-
+    <div class="container-fluid header-container" style="position:fixed;">
       <?php require_once("config/header.php"); ?>
-
     </div>
-    <div class="container">
+    <div class="hero-column-container">
+       <div class="hero-column1 column">
 
 
-      <div class="jumbotron bg-transparent d-flex justify-content-center">
-        <div class="hero-heading">
-          <div class="bonjur">
-            Bonjour,
-          </div>
-          <div class="hunter">
-            hunter
-          </div>
+       </div>
+       <div class="hero-column2 column">
+         <div class="jumbotron bg-transparent">
+           <div class="bonjour color-y">
+             bonjour,
+           </div>
+           <div class="hunter">
+hunter
+           </div>
+           <div class="register color-y">
+          <a class="in-reg color-y" style="" href="register.php">
+            register
+            <img src="images/right-arrow.png" alt="">
+          </a>
 
-        </div>
-</div>
+          <a class="play color-y" style="" href="signin.php">
+            play
+            <img src="images/right-arrow.png" alt="">
+          </a>
+           </div>
+         </div>
 
-    </div>
+       </div>
+     </div>
 
-<div class="bottom-portion">
-
-</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

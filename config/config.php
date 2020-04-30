@@ -7,7 +7,7 @@
     $db_database="sherlock";//Database Name
     $no_of_questions=20;//Number of Questions
     $max_leaderboard_num_row=10;//Number of rows in Leaderboard
-    $start_date='2020-03-11';//Year-Month-Day
+    $start_date='2020-04-29';//Year-Month-Day
     $start_time='08:53:00';//Hour:Minute:Seconds
     $competition_number_of_days=5;//Number of days where event will be online
   //Config Values
@@ -49,7 +49,7 @@
       }
       else
       {
-        echo "<a href='signin.php'><button type='button' name='button' class='btn bg-y'>Sign In</button></a>";
+        echo "<a href='signin.php'><button type='button' name='button' class='btn btn-out' >Sign In</button></a>";
       }
     }
   }
