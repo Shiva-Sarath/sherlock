@@ -2,39 +2,51 @@
   ob_start();
   session_start();
   require_once("config/config.php");
-  if(isset($_SESSION['user']) && !empty($_SESSION['user']))
+  if(isset($_GET['logout']) && $_GET['logout']=="true")
   {
-    header("Location:hunt.php");
-  }
-  if(isCompetitionStarted()!=1)
-  {
+    $_SESSION['user']="";
+    session_destroy();
     header("Location:index.php");
   }
+  $name="";
   $phone="";
+  $college="";
+  $course="";
   $pass="";
   $error="";
-  if(isset($_POST['login']))
+  if(isset($_POST['signup']))
   {
+    $name=$_POST['name'];
     $phone=$_POST['phone'];
+    $college=$_POST['college'];
+    $course=$_POST['course'];
     $pass=$_POST['pass'];
-    if(empty($_POST['phone']) || empty($_POST['pass']))
+    if(empty($_POST['name']) || empty($_POST['phone']) || empty($_POST['college']) || empty($_POST['course']) || empty($_POST['pass']))
     {
       $error="Error : Enter all fields.";
     }
     else
     {
-      $pro=$db->prepare("SELECT answered FROM login WHERE phone=? and password=? limit 1;");
-      $pro->bind_param("ss",$phone,$pass);
+      $pro=$db->prepare("SELECT phone FROM login WHERE phone=? limit 1;");
+      $pro->bind_param("s",$phone);
       $pro->execute();
       $r=$pro->get_result();
       if(mysqli_num_rows($r)>0)
       {
-        $_SESSION['user']=$phone;
-        header("Location:hunt.php");
+        $error="Phone Number already registered. <a href='contact.html' style='margin-left:8px;'>Need Help? Contact Us</a>";
       }
       else
       {
-        $error="Invalid User id / Password";
+        $pro=$db->prepare("INSERT INTO `login`(`phone`,`name`,`college`,`course`,`password`,`answered`,`last_answered`) VALUES (?,?,?,?,?,'00000000000000000000',CURRENT_TIMESTAMP);");
+        $pro->bind_param("sssss",$phone,$name,$college,$course,$pass);
+        if($pro->execute())
+        {
+          header("Location:signin.php");
+        }
+        else
+        {
+          $error=$pro->error;
+        }
       }
     }
   }
@@ -81,30 +93,22 @@
         ?>
         <div class="form-group row ">
           <div class="form-group col-6 mgn" >
-            <!-- <label class="text-success" for="signup_name">Name</label> -->
             <input required type="text" class="form-control" id="signup_name" placeholder="Name" name="name" maxlength="50" value="<?php echo $name; ?>">
           </div>
           <div class="form-group col-6  mgn">
-            <!-- <label class="text-success" for="signup_phone">Phone</label> -->
             <input required type="text" class="form-control" id="signup_phone" placeholder="Phone" name="phone" maxlength="10" onkeydown="phoneNumber(this,event);" value="<?php echo $phone; ?>">
           </div>
         </div>
-        <!-- <div class="form-group  mgn">
-          <label class="text-success" for="signup_college">College</label>
-          <input required type=text class="form-control" id="signup_college" placeholder="College" name="college" maxlength="150" value="<?php echo $college; ?>">
-        </div> -->
+      
         <div class="form-group  mgn">
-          <!-- <label class="text-success" for="signup_course">Course</label> -->
           <input required type="text" class="form-control" id="signup_course" placeholder="Course With Stream" name="course" maxlength="75" value="<?php echo $course; ?>">
         </div>
         <div class="form-group  mgn">
-          <!-- <label class="text-success" for="signup_password">Password</label> -->
           <input required type="password" class="form-control" id="signup_password" placeholder="Password" name="pass" maxlength="25" spellcheck="false">
         </div>
         <div class="form-group center">
           <!-- <button type="button" class="btn btn-outline-warning right" onclick="togglePassword(this);" id="tp">Show Password</button> -->
-          <!-- <button type="reset" class="btn btn-outline-danger left" onclick="resetForm(_('signup_password'),_('tp'));">Reset</button> -->
-          <button type="reset" class="btn  left py-2 px-4 my-2">Reset</button>
+          <button type="reset" class="btn  left py-2 px-4 my-2" onclick="resetForm(_('signup_password'),_('tp'));">Reset</button>
 
           <button type="submit" class="btn  right py-2 px-4 my-2" name="signup">Register</button>
         </div>
