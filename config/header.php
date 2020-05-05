@@ -27,7 +27,7 @@
           }
         ?>
         <li class="nav-item ">
-          <a class="nav-link blackcolor" href="leaderboard.php"> <img src="images/insta.png" alt=""> </a>
+          <a class="nav-link blackcolor" href="http://instagram.com"> <img src="images/insta.png" alt=""> </a>
         </li>
       </ul>
 

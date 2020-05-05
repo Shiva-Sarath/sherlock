@@ -29,7 +29,7 @@
 
 
 
-  <div class="container py-3">
+  <div class="container py-3 text-light">
   <div class="row pt-4">
     <div class="col-lg-6  col-md-8  col-sm-10 offset-sm-1 col-xs-12">
       <div style="width:100%;">

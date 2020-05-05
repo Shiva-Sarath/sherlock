@@ -8,9 +8,15 @@
     session_destroy();
     header("Location:index.php");
   }
+  if(isset($_SESSION['user']) && !empty($_SESSION['user']))
+  {
+    header("Location:index.php");
+
+  }
+
+
   $name="";
   $phone="";
-  $college="";
   $course="";
   $pass="";
   $error="";
@@ -18,10 +24,9 @@
   {
     $name=$_POST['name'];
     $phone=$_POST['phone'];
-    $college=$_POST['college'];
     $course=$_POST['course'];
     $pass=$_POST['pass'];
-    if(empty($_POST['name']) || empty($_POST['phone']) || empty($_POST['college']) || empty($_POST['course']) || empty($_POST['pass']))
+    if(empty($_POST['name']) || empty($_POST['phone']) || empty($_POST['course']) || empty($_POST['pass']))
     {
       $error="Error : Enter all fields.";
     }
@@ -33,12 +38,12 @@
       $r=$pro->get_result();
       if(mysqli_num_rows($r)>0)
       {
-        $error="Phone Number already registered. <a href='contact.html' style='margin-left:8px;'>Need Help? Contact Us</a>";
+        $error="Phone Number already registered. <a href='contactus.php'>Need Help? Contact Us</a>";
       }
       else
       {
-        $pro=$db->prepare("INSERT INTO `login`(`phone`,`name`,`college`,`course`,`password`,`answered`,`last_answered`) VALUES (?,?,?,?,?,'00000000000000000000',CURRENT_TIMESTAMP);");
-        $pro->bind_param("sssss",$phone,$name,$college,$course,$pass);
+        $pro=$db->prepare("INSERT INTO `login`(`phone`,`name`,`course`,`password`,`answered`,`last_answered`) VALUES (?,?,?,?,'00000000000000000000',CURRENT_TIMESTAMP);");
+        $pro->bind_param("ssss",$phone,$name,$course,$pass);
         if($pro->execute())
         {
           header("Location:signin.php");
@@ -88,7 +93,7 @@
         <?php
           if($error!="")
           {
-            echo "<div class='form-group' style='color:#FF0000 !important;'>".$error."</div>";
+            echo "<label  style='color:#ffffff !important;font-size:1rem;'>".$error."</label>";
           }
         ?>
         <div class="form-group row ">
@@ -99,9 +104,9 @@
             <input required type="text" class="form-control" id="signup_phone" placeholder="Phone" name="phone" maxlength="10" onkeydown="phoneNumber(this,event);" value="<?php echo $phone; ?>">
           </div>
         </div>
-      
+
         <div class="form-group  mgn">
-          <input required type="text" class="form-control" id="signup_course" placeholder="Course With Stream" name="course" maxlength="75" value="<?php echo $course; ?>">
+          <input required type="text" class="form-control" id="signup_course" placeholder="Course With Year" name="course" maxlength="75" value="<?php echo $course; ?>">
         </div>
         <div class="form-group  mgn">
           <input required type="password" class="form-control" id="signup_password" placeholder="Password" name="pass" maxlength="25" spellcheck="false">
@@ -114,10 +119,6 @@
         </div>
     </form>
   </div>
-  <!-- <audio src="sounds/b.mp3" controls autoplay /> -->
-
-
-  <!-- <img src="images/1.jpg" style="height: 10px;" onclick="document.getElementById('lostmojo').pause()" /> -->
 
   <?php
     }

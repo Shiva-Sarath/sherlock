@@ -138,6 +138,9 @@ transition: .2s;
   width: 40px;
   height: auto;
 }
+.padding-hunt{
+  padding-top: 12rem !important;
+}
 
 
 .color-y{
@@ -474,12 +477,15 @@ table.leaderboard th
   border:2px solid #000000;
   text-align:center;
   padding:5px 8px;
+  background: #7c703a;
 }
 table.leaderboard td
 {
   border:1px solid #000000;
   text-align:center;
   padding:5px 8px;
+  background: #7c703a;
+
   border-right:2px solid #000000;
 }
 table.leaderboard .highlight
@@ -491,8 +497,8 @@ table.leaderboard .highlight
 }
 .leaderboardbg
 {
-  background-image: linear-gradient(to right bottom, #f2f2f2, #e7eaef, #d8e4ea, #c9dfdf, #bfd8cf);
-  background-position:top;
+background: #252525;
+ background-position:top;
   background-size:cover;
   background-repeat:no-repeat;
   background-attachment:fixed;

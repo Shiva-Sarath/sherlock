@@ -24,12 +24,7 @@
   <div class="container-fluid header-container" >
     <?php require_once("config/header.php"); ?>
   </div>
-
-
-
-
-
-  <div class="container py-3">
+  <div class="container py-3 text-light">
   <div class="row pt-4">
     <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12">
       <div style="width:100%;">
@@ -38,7 +33,6 @@
           <tr>
             <th>No.</th>
             <th>Name</th>
-            <th>College</th>
             <th>Course</th>
             <th>Questions Solved</th>
           </tr>
@@ -61,7 +55,7 @@
                     $my_score=$i;
                     $my_score_row=$row;
                   }
-                  echo "<tr class='".$tclass."'><td>".$i."</td><td>".$row['name']."</td><td>".$row['college']."</td><td>".$row['course']."</td><td>".$row['answered']."</td></tr>";
+                  echo "<tr class='".$tclass."'><td>".$i."</td><td>".$row['name']."</td><td>".$row['course']."</td><td>".$row['answered']."</td></tr>";
                 }
                 else
                 {
@@ -83,7 +77,7 @@
           if(isset($_SESSION['user']) && !empty($_SESSION['user']))
           {
             echo "<div class='ttitle mt-3 mb-2'>Your Rank : <span class='hightext'>".$my_score."</span></div>";
-            echo "<table class='leaderboard'><tr><th>No.</th><th>Name</th><th>College</th><th>Course</th><th>Questions Solved</th></tr><tr class='highlight'><td>".$my_score."</td><td>".$my_score_row['name']."</td><td>".$my_score_row['college']."</td><td>".$my_score_row['course']."</td><td>".$my_score_row['answered']."</td></tr></table>";
+            echo "<table class='leaderboard'><tr><th>No.</th><th>Name</th><th>Course</th><th>Questions Solved</th></tr><tr class='highlight'><td>".$my_score."</td><td>".$my_score_row['name']."</td><td>".$my_score_row['course']."</td><td>".$my_score_row['answered']."</td></tr></table>";
           }
         ?>
       </div>

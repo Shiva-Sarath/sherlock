@@ -1,4 +1,15 @@
+<?php
+  ob_start();
+  session_start();
+  require_once("config/config.php");
+  if(isset($_GET['logout']) && $_GET['logout']=="true")
+  {
+    $_SESSION['user']="";
+    session_destroy();
+    header("Location:index.php");
+  }
 
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -7,7 +18,6 @@
   <link rel="shortcut icon" href="images/ritu.png" />
   <title>221B Baker St. | Treasure Hunt</title>
   <a href="https://icons8.com/icon/32292/instagram"></a>
-  <a href="https://icons8.com/icon/60459/facebook-circled"></a>
   <a href="https://icons8.com/icon/39969/right-arrow"></a>
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Sen:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
