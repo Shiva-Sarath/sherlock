@@ -106,6 +106,12 @@
       ?>
         <h1 class=" text-center whitecolor p-3" style="font-weight:600;text-shadow:0px 0px 5px #000000;">Level <?php echo $level; ?></h1>
         <div class="container">
+          <?php
+          if($level == 1){
+          echo " hi  ";
+
+          }
+          ?>
           <div class="container whitecolor question my-4" style="font-weight:600;font-size:40px;text-shadow:0px 0px 5px #000000;"><?php echo $question; ?></div>
           <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
             <div class="form-group m-0">
