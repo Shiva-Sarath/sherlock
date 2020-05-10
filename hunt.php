@@ -106,9 +106,12 @@
       ?>
         <h1 class=" text-center whitecolor p-3" style="font-weight:600;text-shadow:0px 0px 5px #000000;">Level <?php echo $level; ?></h1>
         <div class="container">
+
           <?php
+          $image1= 'images/1.jpeg';
           if($level == 1){
-          echo " hi  ";
+          echo "  <img src=".$image1." alt="">";
+
 
           }
           ?>
