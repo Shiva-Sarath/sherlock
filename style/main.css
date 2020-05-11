@@ -124,6 +124,10 @@ line-height: 13rem;
   cursor: pointer;
     transition: .2s;
 }
+.w-img{
+  max-width: 600px;
+  height: auto;
+}
 .play{
   display: inline-block;
   cursor: pointer;

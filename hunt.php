@@ -33,7 +33,7 @@
   }
   else
   {
-    $pro1=$db->prepare("SELECT questions FROM question where no=? limit 1;");
+    $pro1=$db->prepare("SELECT * FROM question where no=? limit 1;");
     $pro1->bind_param("i",$qid);
     $pro1->execute();
     $r=$pro1->get_result();
@@ -42,6 +42,7 @@
       $row=mysqli_fetch_assoc($r);
       $level=$qid;
       $question=$row['questions'];
+      $img=$row['img'];
     }
     else
     {
@@ -105,17 +106,31 @@
     {
       ?>
         <h1 class=" text-center whitecolor p-3" style="font-weight:600;text-shadow:0px 0px 5px #000000;">Level <?php echo $level; ?></h1>
-        <div class="container">
-
+        <div class="container text-light">
           <?php
-          $image1= 'images/1.jpeg';
           if($level == 1){
-          echo "  <img src=".$image1." alt="">";
-
+          echo "           <h3>Clue1:</h3> ";
 
           }
           ?>
-          <div class="container whitecolor question my-4" style="font-weight:600;font-size:40px;text-shadow:0px 0px 5px #000000;"><?php echo $question; ?></div>
+
+
+          <?php
+
+          if($img==0)
+          { ?>
+
+          <?php
+          }
+
+            else {
+                for($i=1;$i<=$img;$i++)
+                  {?>
+                       <img class="p-4 w-img" src='images/<?php echo $level ?>/<?php echo $i?>.jpg'>
+        <?php
+    
+      }} ?>
+          </div>
           <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
             <div class="form-group m-0">
               <input type="text" class="form-control max2 relcen trinp" id="name" placeholder="Answer" name="answer" required>
