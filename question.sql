@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 11, 2020 at 07:52 PM
+-- Generation Time: May 17, 2020 at 07:04 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -46,10 +46,10 @@ INSERT INTO `question` (`no`, `questions`, `answer`, `img`) VALUES
 (4, 'Who is the Actor of Iron Man ?', 'rafael nadal', 3),
 (5, 'Who is the Actor of Iron Man ?', 'michelle payne', 5),
 (6, 'Who is the Actor of Iron Man ?', 'cold play', 6),
-(7, 'Who is the Actor of Iron Man ?', '221b baker street', 3),
-(8, 'Who is the Actor of Iron Man ?', 'ans', 0),
-(9, 'Who is the Actor of Iron Man ?', 'ans', 0),
-(10, 'Who is the Actor of Iron Man ?', 'ans', 0),
+(7, 'Who is the Actor of Iron Man ?', 'horcruxes', 3),
+(8, 'Who is the Actor of Iron Man ?', 'eroica', 0),
+(9, 'Who is the Actor of Iron Man ?', 'mariana trench', 0),
+(10, 'Who is the Actor of Iron Man ?', '221b baker street', 0),
 (11, 'Who is the Actor of Iron Man ?', 'ans', 0),
 (12, 'Who is the Actor of Iron Man ?', 'ans', 0),
 (13, 'Who is the Actor of Iron Man ?', 'ans', 0),
